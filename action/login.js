@@ -13,6 +13,7 @@ let initConfigOnLine = async () => {
     url: aphApi.aphConfig,
     method: 'get'
   })
+  console.log(11, aphApi.aphConfig)
   return res
 }
 
@@ -21,22 +22,35 @@ module.exports = async () => {
     figlet.textSync('APH', {horizontalLayout: 'full'})
   ))
   // 热身准备，从远程获取aph-cli配置
-  let APH_web_origin = aphStore.getAphWeb_ApiHead()
-  let APH_proxy_origin = aphStore.getAphProxy_ApiHead()
-  if (!APH_web_origin && !APH_proxy_origin) {
-    try {
-      let res = await initConfigOnLine()
-      if (!res.APH_web_origin || !res.APH_proxy_origin){
-        throw new Error('远程获取的配置文件缺少APH_web_origin、APH_proxy_origin')
-      }
-      aphStore.setAphWeb_ApiHead(res.APH_web_origin)
-      aphStore.setAphProxy_ApiHead(res.APH_proxy_origin)
-    } catch (e) {
-      aphStore.deleteAphWeb_ApiHead()
-      aphStore.deleteAphProxy_ApiHead()
-      return console.log(colors.red('[获取APH配置信息失败]', e.message))
+  try {
+    let res = await initConfigOnLine()
+    if (!res.APH_web_origin || !res.APH_proxy_origin) {
+      throw new Error('从配置中心远程获取的配置，缺少关键key值：APH_web_origin、APH_proxy_origin')
     }
+    aphStore.setAphWeb_ApiHead(res.APH_web_origin)
+    aphStore.setAphProxy_ApiHead(res.APH_proxy_origin)
+  } catch (e) {
+    aphStore.deleteAphWeb_ApiHead()
+    aphStore.deleteAphProxy_ApiHead()
+    return console.log(colors.red('[从远程配置中心获取APH配置信息失败]', e.message))
   }
+  // 热身准备，从远程获取aph-cli配置
+  // let APH_web_origin = aphStore.getAphWeb_ApiHead()
+  // let APH_proxy_origin = aphStore.getAphProxy_ApiHead()
+  // if (!APH_web_origin && !APH_proxy_origin) {
+  //   try {
+  //     let res = await initConfigOnLine()
+  //     if (!res.APH_web_origin || !res.APH_proxy_origin){
+  //       throw new Error('远程获取的配置文件缺少APH_web_origin、APH_proxy_origin')
+  //     }
+  //     aphStore.setAphWeb_ApiHead(res.APH_web_origin)
+  //     aphStore.setAphProxy_ApiHead(res.APH_proxy_origin)
+  //   } catch (e) {
+  //     aphStore.deleteAphWeb_ApiHead()
+  //     aphStore.deleteAphProxy_ApiHead()
+  //     return console.log(colors.red('[获取APH配置信息失败]', e.message))
+  //   }
+  // }
   // 开始登陆
   let loginInfo = aphStore.getLoginInfo()
   let aphKey = aphStore.getAphKey()

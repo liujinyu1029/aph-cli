@@ -3,6 +3,7 @@ const program = require('commander');
 
 const onLogin = require('../action/login')
 const onLogout = require('../action/logout')
+const onShow = require('../action/show')
 
 const pk = require('../package.json')
 
@@ -23,6 +24,11 @@ program
   .command('logout')
   .description('logout退出登录的账号')
   .action(onLogout)
+
+program
+  .command('show')
+  .description('查看APH代理、控制台地址')
+  .action(onShow)
 
 program
   .parse(process.argv);

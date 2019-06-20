@@ -1,6 +1,6 @@
 {
   "name": "aph-cli",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "description": "APH客户端-命令行工具-建立以aph为反向代理的本地静态服务",
   "main": "index.js",
   "keywords": [
@@ -45,5 +45,9 @@
     "url": "https://github.com/liujinyu1029/aph-cli/issues"
   },
   "homepage": "https://github.com/liujinyu1029/aph-cli#readme",
-  "license": "ISC"
+  "license": "ISC",
+  "directories": {
+    "lib": "lib"
+  },
+  "devDependencies": {}
 }
