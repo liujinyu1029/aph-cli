@@ -114,24 +114,25 @@ $ aph show
 // a.html
 <html>
   <body>
-    <div>1111</div>
+
     <!-- aph 1 begin -->
-    <div>2222</div>
+    <span>这里是要复制的内容 part 1</span>
     <!--aph 1 end-->
-    <div>3333</div>
+
+    <img src="http://xx.com/img.jpg" alt="" />
+
     <!-- aph 2 begin -->
-    <div>4444</div>
+    <p>这里是要复制的内容 part 2</p>
     <!--aph 2 end-->
-    <div>5555</div>
+
   </body>
 </html>  
 
 // b.vm
 <div>
-  <div>ssss</div>
   <!-- aph 1 begin -->
   <!--aph 1 end-->
-  <div>xxxx</div>
+  
   <!-- aph 2 begin -->
   <!--aph 2 end-->
 </div>
@@ -143,13 +144,12 @@ $ aph cope ./a.html ./b.vm
 
 //替换成功后 b.vm 为
 <div>
-  <div>ssss</div>
   <!-- aph 1 begin -->
-  <div>2222</div>
+  <span>这里是要复制的内容 part 1</span>
   <!--aph 1 end-->
-  <div>xxxx</div>
+
   <!-- aph 2 begin -->
-  <div>4444</div>
+  <p>这里是要复制的内容 part 2</p>
   <!--aph 2 end-->
 </div>
 
