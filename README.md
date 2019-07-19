@@ -107,7 +107,7 @@ $ aph show
 
 ```
 
-5、`aph cope` 复制a文件部分内容替换到b文件。注意：必须要用<!--aph[n]begin-->XXXXX<!--aph[n]end-->来标记内容范围。如下例：从a.html文件复制部分内容替换到b.vm文件内
+5、`aph cope` 复制a文件部分内容替换到b文件。注意：必须要用`<!--aph[n]begin-->`XXXXX`<!--aph[n]end-->`来标记内容范围。如下例：从a.html文件复制部分内容替换到b.vm文件内
 
 
 ```r
