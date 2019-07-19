@@ -97,6 +97,65 @@ $ aph logout
 
 ```
 
+4、查看aph系统的地址 `aph show`
+
+```r
+$ aph show
+
+[APH代理服务器地址] http://liujinyu.xyz:8089
+[APH控制台页面地址] http://liujinyu.xyz:8090
+
+```
+
+5、`aph cope` 复制a文件部分内容替换到b文件。注意：必须要用<!--aph[n]begin-->XXXXX<!--aph[n]end-->来标记内容范围。如下例：从a.html文件复制部分内容替换到b.vm文件内
+
+
+```r
+// a.html
+<html>
+  <body>
+    <div>1111</div>
+    <!-- aph 1 begin -->
+    <div>2222</div>
+    <!--aph 1 end-->
+    <div>3333</div>
+    <!-- aph 2 begin -->
+    <div>4444</div>
+    <!--aph 2 end-->
+    <div>5555</div>
+  </body>
+</html>  
+
+// b.vm
+<div>
+  <div>ssss</div>
+  <!-- aph 1 begin -->
+  <!--aph 1 end-->
+  <div>xxxx</div>
+  <!-- aph 2 begin -->
+  <!--aph 2 end-->
+</div>
+
+$ aph cope ./a.html ./b.vm
+
+[替换成功]：局部标记为 <!-- aph 1 begin -->
+[替换成功]：局部标记为 <!-- aph 2 begin -->
+
+//替换成功后 b.vm 为
+<div>
+  <div>ssss</div>
+  <!-- aph 1 begin -->
+  <div>2222</div>
+  <!--aph 1 end-->
+  <div>xxxx</div>
+  <!-- aph 2 begin -->
+  <div>4444</div>
+  <!--aph 2 end-->
+</div>
+
+```
+
+
 ## 用途
 
 1. 借助APH，使得像anywhere起的静态服务中也能跑出数据，完全模拟线上，本地可以各种测试。

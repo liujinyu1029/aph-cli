@@ -1,6 +1,6 @@
 {
   "name": "aph-cli",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "APH客户端-命令行工具-建立以aph为反向代理的本地静态服务",
   "main": "index.js",
   "keywords": [

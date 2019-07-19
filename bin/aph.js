@@ -4,6 +4,7 @@ const program = require('commander');
 const onLogin = require('../action/login')
 const onLogout = require('../action/logout')
 const onShow = require('../action/show')
+const onCope = require('../action/cope')
 
 const pk = require('../package.json')
 
@@ -29,6 +30,11 @@ program
   .command('show')
   .description('查看APH代理、控制台地址')
   .action(onShow)
+
+program
+  .command('cope [fileA] [fileB]')
+  .description('从a文件复制部分内容到b文件，以<!--aph [n] begin/end-->标记')
+  .action(onCope)
 
 program
   .parse(process.argv);
