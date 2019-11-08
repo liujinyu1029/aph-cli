@@ -4,5 +4,5 @@
  *  */
  
 module.exports = {
-  APH_config_url: 'http://liujinyu.xyz/resources/config/aph-cli.json'
+  APH_config_url: 'http://118.24.107.173/resources/config/aph-cli.json'
 }
