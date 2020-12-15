@@ -27,7 +27,7 @@
     "commander": "^2.9.0",
     "configstore": "^3.1.2",
     "dateformat": "^2.0.0",
-    "ecstatic": "^2.1.0",
+    "ecstatic": "^4.1.4",
     "figlet": "^1.2.0",
     "he": "^1.1.1",
     "inquirer": "^3.1.0",
