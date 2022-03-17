@@ -37,7 +37,7 @@
     "optimist": "^0.6.1",
     "portfinder": "^1.0.13",
     "request": "^2.88.0",
-    "simple-git": "^1.89.0",
+    "simple-git": "^3.3.0",
     "touch": "^3.1.0",
     "union": "^0.4.6"
   },
